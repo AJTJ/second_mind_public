@@ -1,0 +1,20 @@
+use async_trait::async_trait;
+
+#[async_trait]
+pub trait Backend: Send + Sync {
+    async fn add(&self, data: &str, dataset_name: &str, filename: &str) -> anyhow::Result<()>;
+
+    async fn cognify(&self, datasets: &[String], custom_prompt: &str) -> anyhow::Result<()>;
+
+    async fn search(
+        &self,
+        query: &str,
+        datasets: Option<&[String]>,
+        search_type: Option<&str>,
+        top_k: Option<i32>,
+    ) -> anyhow::Result<serde_json::Value>;
+
+    async fn delete_dataset(&self, dataset_name: &str) -> anyhow::Result<()>;
+
+    async fn delete_all_datasets(&self) -> anyhow::Result<()>;
+}

@@ -1,0 +1,27 @@
+[package]
+name = "intake-engine"
+version = "0.6.2"
+edition = "2024"
+
+[dependencies]
+rmcp = { version = "1", features = ["server", "macros", "transport-streamable-http-server"] }
+tokio = { version = "1", features = ["full"] }
+axum = "0.8"
+tokio-util = "0.7"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+schemars = "1"
+chrono = { version = "0.4", features = ["serde"] }
+ulid = "1"
+sha2 = "0.10"
+hex = "0.4"
+reqwest = { version = "0.12", features = ["json", "multipart"] }
+async-trait = "0.1"
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+dotenvy = "0.15"
+clap = { version = "4", features = ["derive"] }
+
+[dev-dependencies]
+tempfile = "3"

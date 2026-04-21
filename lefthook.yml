@@ -1,0 +1,30 @@
+pre-commit:
+  parallel: false
+  commands:
+    rustfmt:
+      glob: "*.rs"
+      run: >
+        cd intake-engine && cargo fmt --check 2>&1;
+        cd explorer && cargo fmt --check 2>&1
+      stage_fixed: true
+    gitleaks:
+      run: gitleaks git --staged --redact --no-banner
+    cargo-check:
+      glob: "*.rs"
+      run: >
+        cd intake-engine && cargo check 2>&1;
+        cd explorer && cargo check 2>&1
+
+pre-push:
+  parallel: false
+  commands:
+    clippy:
+      glob: "*.rs"
+      run: >
+        cd intake-engine && cargo clippy -- -D warnings 2>&1;
+        cd explorer && cargo clippy -- -D warnings 2>&1
+    test:
+      glob: "*.rs"
+      run: >
+        cd intake-engine && cargo test 2>&1;
+        cd explorer && cargo test 2>&1

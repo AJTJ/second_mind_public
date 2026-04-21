@@ -1,0 +1,4 @@
+[tools]
+just = "1"
+lefthook = "2.1.0"
+gitleaks = "8.24"

@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300">
+  <defs>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c4b5fd">
+        <animate attributeName="stop-color" values="#c4b5fd;#7dd3fc;#c4b5fd" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="40%" stop-color="#7dd3fc" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0a0f1a" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="powerBurst" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.9"/>
+      <stop offset="15%" stop-color="#c4b5fd" stop-opacity="0.6"/>
+      <stop offset="40%" stop-color="#7dd3fc" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0a0f1a" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="nerve1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7dd3fc" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="nerve2" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7dd3fc" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="nerveDown" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="nerveUp" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bigGlow">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="0.3" fill="#1e293b" opacity="0.6"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="300" fill="#060a12"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+
+  <!-- Deep ambient glow from core -->
+  <ellipse cx="250" cy="150" rx="400" ry="180" fill="url(#coreGlow)" opacity="0.15"/>
+
+  <!-- Power radiation rings -->
+  <circle cx="250" cy="150" r="30" fill="none" stroke="#c4b5fd" stroke-width="1.5" opacity="0">
+    <animate attributeName="r" values="20;180" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;0.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="250" cy="150" r="30" fill="none" stroke="#7dd3fc" stroke-width="1" opacity="0">
+    <animate attributeName="r" values="20;180" dur="3s" begin="1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0" dur="3s" begin="1s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="1.5;0.1" dur="3s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="250" cy="150" r="30" fill="none" stroke="#22d3ee" stroke-width="0.8" opacity="0">
+    <animate attributeName="r" values="20;180" dur="3s" begin="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0" dur="3s" begin="2s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="1;0.1" dur="3s" begin="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Main nervous system — thick radiating nerve paths -->
+  <!-- Right nerves (toward text) -->
+  <path d="M 265 145 C 350 120, 420 80, 550 65" fill="none" stroke="url(#nerve1)" stroke-width="2.5" filter="url(#softGlow)" opacity="0.8"/>
+  <path d="M 270 150 C 380 150, 480 140, 600 125" fill="none" stroke="url(#nerve1)" stroke-width="3" filter="url(#softGlow)" opacity="0.9"/>
+  <path d="M 265 155 C 350 180, 450 210, 580 230" fill="none" stroke="url(#nerve1)" stroke-width="2.5" filter="url(#softGlow)" opacity="0.8"/>
+  <path d="M 270 148 C 400 130, 520 100, 700 85" fill="none" stroke="url(#nerve1)" stroke-width="1.5" filter="url(#softGlow)" opacity="0.5"/>
+  <path d="M 270 152 C 400 170, 520 195, 700 210" fill="none" stroke="url(#nerve1)" stroke-width="1.5" filter="url(#softGlow)" opacity="0.5"/>
+
+  <!-- Left nerves -->
+  <path d="M 235 145 C 170 110, 100 60, 20 30" fill="none" stroke="url(#nerve2)" stroke-width="2.5" filter="url(#softGlow)" opacity="0.7"/>
+  <path d="M 230 150 C 150 150, 80 160, 0 170" fill="none" stroke="url(#nerve2)" stroke-width="2" filter="url(#softGlow)" opacity="0.6"/>
+  <path d="M 235 155 C 170 190, 90 240, 10 275" fill="none" stroke="url(#nerve2)" stroke-width="2.5" filter="url(#softGlow)" opacity="0.7"/>
+
+  <!-- Vertical nerves -->
+  <path d="M 248 130 C 240 80, 230 30, 220 0" fill="none" stroke="url(#nerveUp)" stroke-width="2" filter="url(#softGlow)" opacity="0.6"/>
+  <path d="M 252 130 C 270 70, 290 20, 310 0" fill="none" stroke="url(#nerveUp)" stroke-width="1.5" filter="url(#softGlow)" opacity="0.5"/>
+  <path d="M 248 170 C 240 220, 225 265, 210 300" fill="none" stroke="url(#nerveDown)" stroke-width="2" filter="url(#softGlow)" opacity="0.6"/>
+  <path d="M 252 170 C 265 230, 280 270, 300 300" fill="none" stroke="url(#nerveDown)" stroke-width="1.5" filter="url(#softGlow)" opacity="0.5"/>
+
+  <!-- Nerve signal pulses traveling outward -->
+  <circle r="3" fill="#fff" filter="url(#glow)" opacity="0">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 265,145 C 350,120 420,80 550,65"/>
+    <animate attributeName="opacity" values="0;0.9;0" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="3.5" fill="#fff" filter="url(#glow)" opacity="0">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M 270,150 C 380,150 480,140 600,125"/>
+    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="3" fill="#fff" filter="url(#glow)" opacity="0">
+    <animateMotion dur="2.8s" repeatCount="indefinite" path="M 265,155 C 350,180 450,210 580,230"/>
+    <animate attributeName="opacity" values="0;0.8;0" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="2.5" fill="#c4b5fd" filter="url(#glow)" opacity="0">
+    <animateMotion dur="3s" repeatCount="indefinite" path="M 235,145 C 170,110 100,60 20,30"/>
+    <animate attributeName="opacity" values="0;0.7;0" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="2.5" fill="#c4b5fd" filter="url(#glow)" opacity="0">
+    <animateMotion dur="3.2s" repeatCount="indefinite" path="M 235,155 C 170,190 90,240 10,275"/>
+    <animate attributeName="opacity" values="0;0.7;0" dur="3.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="2" fill="#22d3ee" filter="url(#glow)" opacity="0">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 248,130 C 240,80 230,30 220,0"/>
+    <animate attributeName="opacity" values="0;0.6;0" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="2" fill="#22d3ee" filter="url(#glow)" opacity="0">
+    <animateMotion dur="2.7s" repeatCount="indefinite" path="M 248,170 C 240,220 225,265 210,300"/>
+    <animate attributeName="opacity" values="0;0.6;0" dur="2.7s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Synapse nodes along nerves -->
+  <circle cx="350" cy="125" r="2" fill="#7dd3fc" opacity="0.6" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="450" cy="90" r="1.5" fill="#a78bfa" opacity="0.5" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.2;0.7;0.2" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="400" cy="155" r="2" fill="#7dd3fc" opacity="0.6" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="380" cy="185" r="1.5" fill="#a78bfa" opacity="0.5" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="130" cy="100" r="1.5" fill="#7dd3fc" opacity="0.4" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="90" cy="190" r="1.5" fill="#a78bfa" opacity="0.4" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="240" cy="60" r="1.5" fill="#22d3ee" opacity="0.4" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="1.9s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="235" cy="240" r="1.5" fill="#22d3ee" opacity="0.4" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Central nervous system core -->
+  <circle cx="250" cy="150" r="50" fill="url(#powerBurst)" opacity="0.4" filter="url(#bigGlow)"/>
+  <circle cx="250" cy="150" r="22" fill="#060a12" stroke="#c4b5fd" stroke-width="2" filter="url(#glow)">
+    <animate attributeName="stroke" values="#c4b5fd;#7dd3fc;#c4b5fd" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="250" cy="150" r="15" fill="none" stroke="#7dd3fc" stroke-width="0.8" opacity="0.4">
+    <animate attributeName="r" values="14;16;14" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="250" cy="150" r="8" fill="#c4b5fd" filter="url(#glow)">
+    <animate attributeName="fill" values="#c4b5fd;#fff;#c4b5fd" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="7;9;7" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Text -->
+  <text x="500" y="118" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="52" font-weight="200" fill="#94a3b8" letter-spacing="8">second</text>
+  <text x="500" y="183" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="52" font-weight="700" letter-spacing="8" filter="url(#glow)">
+    <tspan fill="#c4b5fd">
+      mind
+      <animate attributeName="fill" values="#c4b5fd;#7dd3fc;#c4b5fd" dur="4s" repeatCount="indefinite"/>
+    </tspan>
+  </text>
+
+  <text x="504" y="218" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11" fill="#475569" letter-spacing="6" font-weight="300">KNOWLEDGE GRAPH</text>
+
+  <!-- Subtle accent line -->
+  <line x1="500" y1="193" x2="580" y2="193" stroke="#c4b5fd" stroke-width="1" opacity="0.4">
+    <animate attributeName="x2" values="580;640;580" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="4s" repeatCount="indefinite"/>
+  </line>
+</svg>
